@@ -1,528 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quebra-Cabeça Deslizante Premium</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    * {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      touch-action: manipulation;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quebra-Cabeça Deslizante Premium</title>
+    <!--<script src="https://cdn.tailwindcss.com"></script>-->
+    <!--<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">-->
 
-    /* Animações e gradientes customizados */
-    .bg-mesh {
-      background-color: #0f172a;
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.25) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.25) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.2) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.2) 0px, transparent 50%);
-    }
 
-    .tile-transition {
-      transition: transform 0.18s cubic-bezier(0.2, 0, 0, 1), background-color 0.2s ease, box-shadow 0.2s ease;
-    }
 
-    .glass-card {
-      background: rgba(30, 41, 59, 0.7);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    <script src="cdn_tailwindcss_com_3_4_17.js"></script>
+    <!--<script src="script.js"></script>-->
 
-    .tile-shadow {
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    }
+    <link href="fonts_googleapis.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
-    .tile-correct {
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-      color: #ffffff;
-    }
 
-    /* Esconder elementos inativos */
-    .hidden-screen {
-      display: none !important;
-    }
-  </style>
 </head>
 <body class="bg-mesh min-h-screen text-slate-100 flex items-center justify-center p-4 sm:p-6 overflow-x-hidden select-none">
 
-  <main class="w-full max-w-lg mx-auto">
-    
-    <!-- ================= TELA: MENU PRINCIPAL ================= -->
-    <section id="menu-screen" class="glass-card rounded-3xl p-6 sm:p-8 text-center shadow-2xl transition-all duration-300">
-      <!-- Cabeçalho do Menu -->
-      <div class="mb-8">
-        <div class="inline-flex p-3 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-4">
-          <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-          </svg>
-        </div>
-        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
-          Quebra-Cabeça
-        </h1>
-        <p class="text-slate-400 text-sm sm:text-base mt-2">Ordene as peças do menor para o maior número</p>
-      </div>
+    <main class="w-full max-w-lg mx-auto">
 
-      <!-- Seleção de Dificuldade -->
-      <div class="space-y-4 mb-8">
-        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 text-left mb-2">
-          Selecione a Dificuldade
-        </label>
-        
-        <div class="grid grid-cols-1 gap-3">
-          <!-- Opção Fácil -->
-          <button type="button" onclick="selectDifficulty(3)" id="btn-diff-3" 
-            class="diff-btn group relative flex items-center justify-between p-4 rounded-2xl border border-indigo-500/50 bg-indigo-500/10 text-white font-semibold transition-all duration-200 hover:border-indigo-400">
-            <div class="flex items-center space-x-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400 text-lg font-bold">3x3</span>
-              <div class="text-left">
-                <div class="text-base font-bold">Fácil</div>
-                <div class="text-xs text-slate-400">8 peças - Ideal para começar</div>
-              </div>
+        <!-- ================= TELA: MENU PRINCIPAL ================= -->
+        <section id="menu-screen" class="glass-card rounded-3xl p-6 sm:p-8 text-center shadow-2xl transition-all duration-300">
+            <!-- Cabeçalho do Menu -->
+            <div class="mb-8">
+                <div class="inline-flex p-3 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 mb-4">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 bg-clip-text text-transparent">
+                    Quebra-Cabeça
+                </h1>
+                <p class="text-slate-400 text-sm sm:text-base mt-2">Ordene as peças do menor para o maior número</p>
             </div>
-            <div class="radio-indicator w-5 h-5 rounded-full border-2 border-indigo-400 flex items-center justify-center">
-              <div class="w-2.5 h-2.5 rounded-full bg-indigo-400"></div>
+
+            <!-- Seleção de Dificuldade -->
+            <div class="space-y-4 mb-8">
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 text-left mb-2">
+                    Selecione a Dificuldade
+                </label>
+
+                <div class="grid grid-cols-1 gap-3">
+                    <!-- Opção Fácil -->
+                    <button type="button" onclick="selectDifficulty(3)" id="btn-diff-3"
+                            class="diff-btn group relative flex items-center justify-between p-4 rounded-2xl border border-indigo-500/50 bg-indigo-500/10 text-white font-semibold transition-all duration-200 hover:border-indigo-400">
+                        <div class="flex items-center space-x-3">
+                            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/20 text-emerald-400 text-lg font-bold">3x3</span>
+                            <div class="text-left">
+                                <div class="text-base font-bold">Fácil</div>
+                                <div class="text-xs text-slate-400">8 peças - Ideal para começar</div>
+                            </div>
+                        </div>
+                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-indigo-400 flex items-center justify-center">
+                            <div class="w-2.5 h-2.5 rounded-full bg-indigo-400"></div>
+                        </div>
+                    </button>
+
+                    <!-- Opção Médio -->
+                    <button type="button" onclick="selectDifficulty(4)" id="btn-diff-4"
+                            class="diff-btn group relative flex items-center justify-between p-4 rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-semibold transition-all duration-200 hover:border-slate-600">
+                        <div class="flex items-center space-x-3">
+                            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400 text-lg font-bold">4x4</span>
+                            <div class="text-left">
+                                <div class="text-base font-bold text-white">Médio</div>
+                                <div class="text-xs text-slate-400">15 peças - Desafio equilibrado</div>
+                            </div>
+                        </div>
+                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-600 flex items-center justify-center">
+                            <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+                        </div>
+                    </button>
+
+                    <!-- Opção Difícil -->
+                    <button type="button" onclick="selectDifficulty(5)" id="btn-diff-5"
+                            class="diff-btn group relative flex items-center justify-between p-4 rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-semibold transition-all duration-200 hover:border-slate-600">
+                        <div class="flex items-center space-x-3">
+                            <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500/20 text-rose-400 text-lg font-bold">5x5</span>
+                            <div class="text-left">
+                                <div class="text-base font-bold text-white">Difícil</div>
+                                <div class="text-xs text-slate-400">24 peças - Para mestres da lógica</div>
+                            </div>
+                        </div>
+                        <div class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-600 flex items-center justify-center">
+                            <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+                        </div>
+                    </button>
+                </div>
             </div>
-          </button>
 
-          <!-- Opção Médio -->
-          <button type="button" onclick="selectDifficulty(4)" id="btn-diff-4" 
-            class="diff-btn group relative flex items-center justify-between p-4 rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-semibold transition-all duration-200 hover:border-slate-600">
-            <div class="flex items-center space-x-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/20 text-amber-400 text-lg font-bold">4x4</span>
-              <div class="text-left">
-                <div class="text-base font-bold text-white">Médio</div>
-                <div class="text-xs text-slate-400">15 peças - Desafio equilibrado</div>
-              </div>
+            <!-- Botão Iniciar -->
+            <button onclick="startGame()" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold text-lg shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center space-x-2">
+                <span>Começar Jogo</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                </svg>
+            </button>
+        </section>
+
+        <!-- ================= TELA: DO JOGO ================= -->
+        <section id="game-screen" class="glass-card rounded-3xl p-5 sm:p-6 shadow-2xl transition-all duration-300 hidden-screen">
+            <!-- Top Bar: Nível e Ações -->
+            <div class="flex items-center justify-between mb-5">
+                <button onclick="goToMenu()" class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-sm font-medium transition-colors border border-slate-700">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span>Menu</span>
+                </button>
+
+                <span id="current-diff-badge" class="px-3.5 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-wide">
+                    Modo 3x3
+                </span>
+
+                <button onclick="restartGame()" class="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-sm font-medium transition-colors border border-slate-700">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                    <span>Reiniciar</span>
+                </button>
             </div>
-            <div class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-600 flex items-center justify-center">
-              <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+
+            <!-- Painel de Estatísticas -->
+            <div class="grid grid-cols-2 gap-3 mb-5">
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-3 text-center">
+                    <span class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-0.5">Tempo</span>
+                    <span id="timer-display" class="text-2xl font-extrabold text-white font-mono">00:00</span>
+                </div>
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-3 text-center">
+                    <span class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-0.5">Movimentos</span>
+                    <span id="moves-display" class="text-2xl font-extrabold text-white font-mono">0</span>
+                </div>
             </div>
-          </button>
 
-          <!-- Opção Difícil -->
-          <button type="button" onclick="selectDifficulty(5)" id="btn-diff-5" 
-            class="diff-btn group relative flex items-center justify-between p-4 rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-semibold transition-all duration-200 hover:border-slate-600">
-            <div class="flex items-center space-x-3">
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500/20 text-rose-400 text-lg font-bold">5x5</span>
-              <div class="text-left">
-                <div class="text-base font-bold text-white">Difícil</div>
-                <div class="text-xs text-slate-400">24 peças - Para mestres da lógica</div>
-              </div>
+            <!-- Container do Tabuleiro -->
+            <div class="relative w-full aspect-square bg-slate-950/80 p-2.5 sm:p-3 rounded-2xl border border-slate-800/80 shadow-inner">
+                <div id="board" class="w-full h-full relative"></div>
             </div>
-            <div class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-600 flex items-center justify-center">
-              <div class="w-2.5 h-2.5 rounded-full bg-transparent"></div>
+        </section>
+
+    </main>
+
+    <!-- ================= MODAL: VITÓRIA ================= -->
+    <div id="victory-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="glass-card max-w-sm w-full rounded-3xl p-6 sm:p-8 text-center shadow-2xl border border-emerald-500/30 transform scale-95 transition-all duration-300" id="victory-card">
+
+            <!-- Ícone de Troféu -->
+            <div class="mx-auto w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-4 animate-bounce">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
             </div>
-          </button>
+
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-1">Parabéns!</h2>
+            <p class="text-slate-400 text-sm mb-6">Você resolveu o quebra-cabeça com sucesso!</p>
+
+            <!-- Resumo do Desempenho -->
+            <div class="bg-slate-900/80 rounded-2xl p-4 border border-slate-800 space-y-3 mb-6">
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-slate-400">Tempo Total:</span>
+                    <span id="modal-time" class="font-bold text-emerald-400 font-mono text-base">00:00</span>
+                </div>
+                <div class="border-t border-slate-800/80"></div>
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-slate-400">Movimentos:</span>
+                    <span id="modal-moves" class="font-bold text-indigo-400 font-mono text-base">0</span>
+                </div>
+            </div>
+
+            <!-- Botões do Modal -->
+            <div class="space-y-2.5">
+                <button onclick="restartGame(); closeVictoryModal();" class="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition-all shadow-lg shadow-emerald-500/20 active:scale-[0.98]">
+                    Jogar Novamente
+                </button>
+                <button onclick="goToMenu(); closeVictoryModal();" class="w-full py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold transition-all border border-slate-700">
+                    Voltar ao Menu
+                </button>
+            </div>
         </div>
-      </div>
-
-      <!-- Botão Iniciar -->
-      <button onclick="startGame()" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold text-lg shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center space-x-2">
-        <span>Começar Jogo</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-        </svg>
-      </button>
-    </section>
-
-    <!-- ================= TELA: DO JOGO ================= -->
-    <section id="game-screen" class="glass-card rounded-3xl p-5 sm:p-6 shadow-2xl transition-all duration-300 hidden-screen">
-      <!-- Top Bar: Nível e Ações -->
-      <div class="flex items-center justify-between mb-5">
-        <button onclick="goToMenu()" class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-sm font-medium transition-colors border border-slate-700">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-          </svg>
-          <span>Menu</span>
-        </button>
-
-        <span id="current-diff-badge" class="px-3.5 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-xs font-bold uppercase tracking-wide">
-          Modo 3x3
-        </span>
-
-        <button onclick="restartGame()" class="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white text-sm font-medium transition-colors border border-slate-700">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-          </svg>
-          <span>Reiniciar</span>
-        </button>
-      </div>
-
-      <!-- Painel de Estatísticas -->
-      <div class="grid grid-cols-2 gap-3 mb-5">
-        <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-3 text-center">
-          <span class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-0.5">Tempo</span>
-          <span id="timer-display" class="text-2xl font-extrabold text-white font-mono">00:00</span>
-        </div>
-        <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-3 text-center">
-          <span class="block text-xs font-medium text-slate-400 uppercase tracking-wider mb-0.5">Movimentos</span>
-          <span id="moves-display" class="text-2xl font-extrabold text-white font-mono">0</span>
-        </div>
-      </div>
-
-      <!-- Container do Tabuleiro -->
-      <div class="relative w-full aspect-square bg-slate-950/80 p-2.5 sm:p-3 rounded-2xl border border-slate-800/80 shadow-inner">
-        <div id="board" class="w-full h-full relative"></div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= MODAL: VITÓRIA ================= -->
-  <div id="victory-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none transition-all duration-300">
-    <div class="glass-card max-w-sm w-full rounded-3xl p-6 sm:p-8 text-center shadow-2xl border border-emerald-500/30 transform scale-95 transition-all duration-300" id="victory-card">
-      
-      <!-- Ícone de Troféu -->
-      <div class="mx-auto w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-4 animate-bounce">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-        </svg>
-      </div>
-
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-1">Parabéns!</h2>
-      <p class="text-slate-400 text-sm mb-6">Você resolveu o quebra-cabeça com sucesso!</p>
-
-      <!-- Resumo do Desempenho -->
-      <div class="bg-slate-900/80 rounded-2xl p-4 border border-slate-800 space-y-3 mb-6">
-        <div class="flex justify-between items-center text-sm">
-          <span class="text-slate-400">Tempo Total:</span>
-          <span id="modal-time" class="font-bold text-emerald-400 font-mono text-base">00:00</span>
-        </div>
-        <div class="border-t border-slate-800/80"></div>
-        <div class="flex justify-between items-center text-sm">
-          <span class="text-slate-400">Movimentos:</span>
-          <span id="modal-moves" class="font-bold text-indigo-400 font-mono text-base">0</span>
-        </div>
-      </div>
-
-      <!-- Botões do Modal -->
-      <div class="space-y-2.5">
-        <button onclick="restartGame(); closeVictoryModal();" class="w-full py-3.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition-all shadow-lg shadow-emerald-500/20 active:scale-[0.98]">
-          Jogar Novamente
-        </button>
-        <button onclick="goToMenu(); closeVictoryModal();" class="w-full py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold transition-all border border-slate-700">
-          Voltar ao Menu
-        </button>
-      </div>
     </div>
-  </div>
 
-  <script>
-    // ESTADO DO JOGO
-    let gridSize = 3;
-    let tiles = [];
-    let moves = 0;
-    let timerInterval = null;
-    let secondsElapsed = 0;
-    let isGameRunning = false;
-    let audioCtx = null;
-
-    // ELEMENTOS DOM
-    const menuScreen = document.getElementById('menu-screen');
-    const gameScreen = document.getElementById('game-screen');
-    const boardElement = document.getElementById('board');
-    const movesDisplay = document.getElementById('moves-display');
-    const timerDisplay = document.getElementById('timer-display');
-    const diffBadge = document.getElementById('current-diff-badge');
-    const victoryModal = document.getElementById('victory-modal');
-    const victoryCard = document.getElementById('victory-card');
-
-    // SELEÇÃO DE DIFICULDADE
-    function selectDifficulty(size) {
-      gridSize = size;
-      [3, 4, 5].forEach(s => {
-        const btn = document.getElementById(`btn-diff-${s}`);
-        const indicator = btn.querySelector('.radio-indicator');
-        const dot = indicator.querySelector('div');
-
-        if (s === size) {
-          btn.className = "diff-btn group relative flex items-center justify-between p-4 rounded-2xl border border-indigo-500/50 bg-indigo-500/10 text-white font-semibold transition-all duration-200 hover:border-indigo-400";
-          indicator.className = "radio-indicator w-5 h-5 rounded-full border-2 border-indigo-400 flex items-center justify-center";
-          dot.className = "w-2.5 h-2.5 rounded-full bg-indigo-400";
-        } else {
-          btn.className = "diff-btn group relative flex items-center justify-between p-4 rounded-2xl border border-slate-700 bg-slate-800/40 text-slate-300 font-semibold transition-all duration-200 hover:border-slate-600";
-          indicator.className = "radio-indicator w-5 h-5 rounded-full border-2 border-slate-600 flex items-center justify-center";
-          dot.className = "w-2.5 h-2.5 rounded-full bg-transparent";
-        }
-      });
-    }
-
-    // INICIAR O JOGO
-    function startGame() {
-      menuScreen.classList.add('hidden-screen');
-      gameScreen.classList.remove('hidden-screen');
-
-      const names = { 3: "Modo Fácil 3x3", 4: "Modo Médio 4x4", 5: "Modo Difícil 5x5" };
-      diffBadge.innerText = names[gridSize];
-
-      restartGame();
-    }
-
-    // VOLTAR AO MENU
-    function goToMenu() {
-      stopTimer();
-      gameScreen.classList.add('hidden-screen');
-      menuScreen.classList.remove('hidden-screen');
-    }
-
-    // REINICIAR PARTIDA
-    function restartGame() {
-      stopTimer();
-      moves = 0;
-      secondsElapsed = 0;
-      isGameRunning = true;
-      movesDisplay.innerText = "0";
-      timerDisplay.innerText = "00:00";
-
-      initBoard();
-      shuffleTiles();
-      renderBoard();
-      startTimer();
-    }
-
-    // INICIALIZAR TABULEIRO RESOLVIDO
-    function initBoard() {
-      const totalTiles = gridSize * gridSize;
-      tiles = [];
-      for (let i = 1; i < totalTiles; i++) {
-        tiles.push(i);
-      }
-      tiles.push(0); // 0 representa o espaço vazio
-    }
-
-    // EMBARALHAR COM GARANTIA DE SOLUÇÃO
-    function shuffleTiles() {
-      const totalMoves = gridSize * gridSize * 25;
-      for (let i = 0; i < totalMoves; i++) {
-        const emptyIndex = tiles.indexOf(0);
-        const validMoves = getValidAdjacentIndices(emptyIndex);
-        const randomMove = validMoves[Math.floor(Math.random() * validMoves.length)];
-        // Troca o vazio com uma peça adjacente válida
-        [tiles[emptyIndex], tiles[randomMove]] = [tiles[randomMove], tiles[emptyIndex]];
-      }
-    }
-
-    // OBTER ÍNDICES ADJACENTES VÁLIDOS
-    function getValidAdjacentIndices(index) {
-      const valid = [];
-      const row = Math.floor(index / gridSize);
-      const col = index % gridSize;
-
-      if (row > 0) valid.push(index - gridSize); // Cima
-      if (row < gridSize - 1) valid.push(index + gridSize); // Baixo
-      if (col > 0) valid.push(index - 1); // Esquerda
-      if (col < gridSize - 1) valid.push(index + 1); // Direita
-
-      return valid;
-    }
-
-    // RENDERIZAR PEÇAS NO DOM COM POSICIONAMENTO ABSOLUTO
-    function renderBoard() {
-      boardElement.innerHTML = '';
-
-      const gap = 8; // Espaçamento em px
-      const boardSize = boardElement.clientWidth;
-      const tileSize = (boardSize - (gap * (gridSize - 1))) / gridSize;
-
-      tiles.forEach((val, index) => {
-        if (val === 0) return; // Não renderiza elemento HTML para o espaço vazio
-
-        const row = Math.floor(index / gridSize);
-        const col = index % gridSize;
-
-        const tileNode = document.createElement('button');
-        tileNode.type = 'button';
-        
-        // Verifica se está na posição correta da solução
-        const isCorrect = val === (index + 1);
-        const colorClass = isCorrect ? 'tile-correct' : 'bg-gradient-to-br from-indigo-600 to-slate-800 text-white';
-
-        // Tamanho de fonte dinâmico dependendo da grade
-        const fontSizeClass = gridSize === 5 ? 'text-lg sm:text-xl' : gridSize === 4 ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-3xl';
-
-        tileNode.className = `absolute tile-transition rounded-xl font-extrabold flex items-center justify-center tile-shadow border border-white/10 cursor-pointer ${colorClass} ${fontSizeClass}`;
-        
-        tileNode.style.width = `${tileSize}px`;
-        tileNode.style.height = `${tileSize}px`;
-        
-        const posX = col * (tileSize + gap);
-        const posY = row * (tileSize + gap);
-        tileNode.style.transform = `translate3d(${posX}px, ${posY}px, 0)`;
-
-        tileNode.innerText = val;
-        tileNode.onclick = () => handleTileClick(index);
-
-        boardElement.appendChild(tileNode);
-      });
-    }
-
-    // CLIQUE / TOQUE NA PEÇA
-    function handleTileClick(index) {
-      if (!isGameRunning) return;
-
-      const emptyIndex = tiles.indexOf(0);
-      const validMoves = getValidAdjacentIndices(emptyIndex);
-
-      if (validMoves.includes(index)) {
-        // Mover peça
-        [tiles[emptyIndex], tiles[index]] = [tiles[index], tiles[emptyIndex]];
-        moves++;
-        movesDisplay.innerText = moves;
-
-        renderBoard();
-        checkVictory();
-      }
-    }
-
-    // CRONÔMETRO
-    function startTimer() {
-      stopTimer();
-      timerInterval = setInterval(() => {
-        secondsElapsed++;
-        const mins = String(Math.floor(secondsElapsed / 60)).padStart(2, '0');
-        const secs = String(secondsElapsed % 60).padStart(2, '0');
-        timerDisplay.innerText = `${mins}:${secs}`;
-      }, 1000);
-    }
-
-    function stopTimer() {
-      if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-      }
-    }
-
-    // VERIFICAR VITÓRIA
-    function checkVictory() {
-      const totalTiles = gridSize * gridSize;
-      for (let i = 0; i < totalTiles - 1; i++) {
-        if (tiles[i] !== i + 1) return;
-      }
-      if (tiles[totalTiles - 1] !== 0) return;
-
-      // Se chegou aqui, VENCEU!
-      isGameRunning = false;
-      stopTimer();
-      playVictorySound();
-      showVictoryModal();
-    }
-
-    // SINTETIZADOR DE ÁUDIO PARA VITÓRIA (Web Audio API)
-    function playVictorySound() {
-      try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-
-        const now = audioCtx.currentTime;
-        
-        // Melodia de Fanfarra Alegre (Notas em Hz)
-        // Dó4, Mi4, Sol4, Dó5, Sol4, Dó5, Mi5, Sol5
-        const melody = [
-          { note: 523.25, time: 0.00, dur: 0.12, type: 'triangle' }, // C5
-          { note: 659.25, time: 0.12, dur: 0.12, type: 'triangle' }, // E5
-          { note: 783.99, time: 0.24, dur: 0.12, type: 'triangle' }, // G5
-          { note: 1046.50, time: 0.36, dur: 0.20, type: 'square' },   // C6
-          { note: 783.99, time: 0.52, dur: 0.12, type: 'triangle' }, // G5
-          { note: 1046.50, time: 0.64, dur: 0.18, type: 'triangle' }, // C6
-          { note: 1318.51, time: 0.82, dur: 0.22, type: 'triangle' }, // E6
-          { note: 1567.98, time: 1.05, dur: 0.60, type: 'square' }    // G6 (Final brilhante)
-        ];
-
-        // Acompanhamento / Acordes Festivos de Fundo (Harmonia)
-        const chords = [
-          // Acorde de Dó Maior (C Major)
-          { note: 261.63, time: 0.00, dur: 0.35, type: 'sine' }, // C4
-          { note: 329.63, time: 0.00, dur: 0.35, type: 'sine' }, // E4
-          // Acorde de Sol Maior (G Major)
-          { note: 392.00, time: 0.36, dur: 0.40, type: 'sine' }, // G4
-          { note: 493.88, time: 0.36, dur: 0.40, type: 'sine' }, // B4
-          // Acorde Triunfal Final (C Major Brilhante)
-          { note: 523.25, time: 0.82, dur: 0.80, type: 'sine' }, // C5
-          { note: 659.25, time: 0.82, dur: 0.80, type: 'sine' }, // E5
-          { note: 783.99, time: 0.82, dur: 0.80, type: 'sine' }  // G5
-        ];
-
-        // Toca a Melodia Principal
-        melody.forEach(n => {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-
-          osc.type = n.type;
-          osc.frequency.setValueAtTime(n.note, now + n.time);
-
-          // Envelope de volume com decay natural
-          gain.gain.setValueAtTime(0, now + n.time);
-          gain.gain.linearRampToValueAtTime(0.2, now + n.time + 0.02);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + n.time + n.dur);
-
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-
-          osc.start(now + n.time);
-          osc.stop(now + n.time + n.dur);
-        });
-
-        // Toca os Acordes de Fundo
-        chords.forEach(c => {
-          const osc = audioCtx.createOscillator();
-          const gain = audioCtx.createGain();
-
-          osc.type = c.type;
-          osc.frequency.setValueAtTime(c.note, now + c.time);
-
-          gain.gain.setValueAtTime(0, now + c.time);
-          gain.gain.linearRampToValueAtTime(0.12, now + c.time + 0.04);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + c.time + c.dur);
-
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-
-          osc.start(now + c.time);
-          osc.stop(now + c.time + c.dur);
-        });
-
-      } catch (e) {
-        console.log("Áudio indisponível:", e);
-      }
-    }
-
-    // EXIBIR MODAL DE VITÓRIA
-    function showVictoryModal() {
-      document.getElementById('modal-time').innerText = timerDisplay.innerText;
-      document.getElementById('modal-moves').innerText = moves;
-
-      victoryModal.classList.remove('opacity-0', 'pointer-events-none');
-      victoryCard.classList.remove('scale-95');
-      victoryCard.classList.add('scale-100');
-    }
-
-    function closeVictoryModal() {
-      victoryModal.classList.add('opacity-0', 'pointer-events-none');
-      victoryCard.classList.remove('scale-100');
-      victoryCard.classList.add('scale-95');
-    }
-
-    // AJUSTAR DIMENSÕES AO REDIMENSIONAR A TELA
-    window.addEventListener('resize', () => {
-      if (!gameScreen.classList.contains('hidden-screen')) {
-        renderBoard();
-      }
-    });
-
-    // INICIALIZAÇÃO AO CARREGAR
-    window.onload = () => {
-      selectDifficulty(3);
-    };
-  </script>
+    <!-- Carregue o script aqui, no final do body -->
+    <script src="script.js"></script>
 </body>
 </html>
