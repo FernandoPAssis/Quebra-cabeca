@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Fundo gradiente leve -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Ícone do Quebra-Cabeça -->
+  <g transform="translate(536, 170)">
+    <rect x="0" y="0" width="60" height="60" rx="10" fill="#3B82F6"/>
+    <rect x="68" y="0" width="60" height="60" rx="10" fill="#10B981"/>
+    <rect x="0" y="68" width="60" height="60" rx="10" fill="#F59E0B"/>
+    <rect x="68" y="68" width="60" height="60" rx="10" fill="#EF4444"/>
+  </g>
+
+  <!-- Título do Jogo -->
+  <text x="600" y="360" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+    Quebra-Cabeça Deslizante
+  </text>
+  
+  <!-- Subtítulo -->
+  <text x="600" y="410" font-family="Arial, sans-serif" font-size="24" fill="#94A3B8" text-anchor="middle">
+    Desafie sua mente e resolva o enigma!
+  </text>
+</svg>
